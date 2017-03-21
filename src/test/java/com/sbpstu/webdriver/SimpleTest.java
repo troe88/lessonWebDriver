@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by dmitry on 14.03.17.
@@ -19,29 +20,32 @@ public class SimpleTest extends BaseTest {
     public Object[][] data() {
         return new Object[][]{
                 {"spbstu", Arrays.asList(
-                        "english.spbstu.ru/",
+                        "1english.spbstu.ru/",
                         "https://vk.com/pgpuspb",
-                        "https://en.wikipedia.org/wiki/Peter_the_Great_St._Petersburg_Polytechnic_University")},
+                        "1https://en.wikipedia.org/wiki/Peter_the_Great_St._Petersburg_Polytechnic_University")},
                 {"itmo", Arrays.asList(
                         "en.ifmo.ru/",
                         "https://en.wikipedia.org/wiki/ITMO_University",
-                        "https://www.edx.org/school/itmox")}
+                        "1https://www.edx.org/school/itmox")}
         };
     }
 
-    @Test(dataProvider = "data")
+    @Test(dataProvider = "data", dataProviderClass = SimpleTest.class)
     public void test1(String searchString, List<String> expected) {
         driver.navigate().to("http://www.google.com");
-//        WebElement element = driver.findElement(By.id("lst-ib"));
-//        element.sendKeys("itmo" + Keys.ENTER);
-//        List<WebElement> elements = driver.findElements(By.xpath("//*[@id='res']//div[@class='g']//cite"));
-//        String expected = "spbstu";
+        WebElement element = driver.findElement(By.id("lst-ib"));
+        element.sendKeys(searchString + Keys.ENTER);
+        List<String> actual = driver.findElements(By.xpath("//*[@id='res']//div[@class='g']//cite"))
+                .stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
+
+        expected.forEach((e) -> softAssert.assertTrue(actual.stream().anyMatch(ee -> ee.contains(e)),
+                String.format("Element: %s is missing", e)));
+
+        softAssert.assertAll();
 //        Assert.assertTrue(elements.stream().anyMatch(e -> e.getText().contains(expected)));
     }
 
-    @Test(groups = "smoke")
-    public void test2() {
-
-    }
 
 }
