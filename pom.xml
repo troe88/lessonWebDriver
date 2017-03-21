@@ -29,7 +29,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <systemPropertyVariables>
-                        <webdriver.chrome.driver>/home/dmitry/Documents/selenium/chromedriver</webdriver.chrome.driver>
+                        <webdriver.chrome.driver>C:/Selenium/chromedriver.exe</webdriver.chrome.driver>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
