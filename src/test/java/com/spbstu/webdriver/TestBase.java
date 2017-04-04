@@ -1,10 +1,9 @@
 package com.spbstu.webdriver;
 
-import lombok.Getter;
+import com.spbstu.pageobjects.Site;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -14,8 +13,6 @@ import org.testng.asserts.SoftAssert;
 
 import java.lang.reflect.Method;
 import java.util.concurrent.TimeUnit;
-
-import static org.testng.ITestResult.FAILURE;
 
 /**
  * Created by dmitry on 14.03.17.
@@ -35,6 +32,11 @@ public class TestBase {
         options.addArguments("--lang=en-GB");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+//        IndexPage.setDriver(driver);
+//        ContactFormPage.setDriver(driver);
+//        PageFactory.initElements(driver, IndexPage.class);
+        Site.init(driver);
     }
 
     @AfterMethod()
