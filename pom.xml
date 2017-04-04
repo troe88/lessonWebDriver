@@ -12,7 +12,10 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <driver.path>C:/Selenium/chromedriver.exe</driver.path>
+        <suite></suite>
     </properties>
+
 
     <build>
         <plugins>
@@ -29,12 +32,16 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <systemPropertyVariables>
-                        <webdriver.chrome.driver>/home/dmitry/Documents/selenium/chromedriver</webdriver.chrome.driver>
+                        <webdriver.chrome.driver>${driver.path}</webdriver.chrome.driver>
                     </systemPropertyVariables>
+                    <suiteXmlFiles>
+                        src\test\java\resources\runner_${suite}.xml
+                    </suiteXmlFiles>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
 
     <dependencies>
         <dependency>
@@ -46,6 +53,11 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>3.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.14</version>
         </dependency>
     </dependencies>
 </project>

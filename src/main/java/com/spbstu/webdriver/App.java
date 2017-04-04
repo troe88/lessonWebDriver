@@ -1,4 +1,4 @@
-package com.sbpstu.webdriver;
+package com.spbstu.webdriver;
 
 /**
  * Hello world!
