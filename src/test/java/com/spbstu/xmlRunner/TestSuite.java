@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 /**
  * Created by dmitry on 21.03.2017.
  */
-public class TestSuite extends BaseTest {
+public class TestSuite extends BaseTest_ {
 
     @DataProvider(parallel = true)
     public Object[][] data(){

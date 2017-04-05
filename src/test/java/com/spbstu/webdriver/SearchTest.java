@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 /**
  * Created by dmitry on 21.03.2017.
  */
-public class SearchTest extends TestBase {
+public class SearchTest extends BaseTest {
 
     @DataProvider
     public Object[][] data() {

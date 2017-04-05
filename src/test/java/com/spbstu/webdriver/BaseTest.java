@@ -1,6 +1,10 @@
 package com.spbstu.webdriver;
 
 import com.spbstu.pageobjects.Site;
+import com.spbstu.EpamSite;
+import com.spbstu.pageobjects.ContactFormPage;
+import com.spbstu.pageobjects.HomePage;
+import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -17,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by dmitry on 14.03.17.
  */
-public class TestBase {
+public class BaseTest {
 
     SoftAssert softAssert;
 
@@ -37,6 +41,9 @@ public class TestBase {
 //        ContactFormPage.setDriver(driver);
 //        PageFactory.initElements(driver, IndexPage.class);
         Site.init(driver);
+        EpamSite.init(driver);
+//        HomePage.setDriver(driver);
+//        ContactFormPage.setDriver(driver);
     }
 
     @AfterMethod()
