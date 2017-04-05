@@ -1,5 +1,8 @@
 package com.spbstu.webdriver;
 
+import com.spbstu.EpamSite;
+import com.spbstu.pageobjects.ContactFormPage;
+import com.spbstu.pageobjects.HomePage;
 import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,7 +23,7 @@ import static org.testng.ITestResult.FAILURE;
 /**
  * Created by dmitry on 14.03.17.
  */
-public class TestBase {
+public class BaseTest {
 
     SoftAssert softAssert;
 
@@ -35,6 +38,9 @@ public class TestBase {
         options.addArguments("--lang=en-GB");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        EpamSite.init(driver);
+//        HomePage.setDriver(driver);
+//        ContactFormPage.setDriver(driver);
     }
 
     @AfterMethod()
