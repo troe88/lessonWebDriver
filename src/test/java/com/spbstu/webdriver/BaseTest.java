@@ -1,10 +1,6 @@
 package com.spbstu.webdriver;
 
-import com.spbstu.pageobjects.Site;
 import com.spbstu.EpamSite;
-import com.spbstu.pageobjects.ContactFormPage;
-import com.spbstu.pageobjects.HomePage;
-import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -40,7 +36,6 @@ public class BaseTest {
 //        IndexPage.setDriver(driver);
 //        ContactFormPage.setDriver(driver);
 //        PageFactory.initElements(driver, IndexPage.class);
-        Site.init(driver);
         EpamSite.init(driver);
 //        HomePage.setDriver(driver);
 //        ContactFormPage.setDriver(driver);
