@@ -1,5 +1,6 @@
 package com.spbstu.pageobjectsfactory;
 
+import com.spbstu.pageobjectsfactory.entities.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,10 +28,10 @@ public class FactoryHomePage {
     @FindBy(xpath = "(//*[@class='sidebar-menu'] //a[@href='page1.htm'])[1]")
     WebElement contactFormLink;
 
-    public void login(String login, String password){
+    public void login(User user){
         profileMenu.click();
-        this.login.sendKeys(login);
-        this.password.sendKeys(password);
+        this.login.sendKeys(user.getLogin());
+        this.password.sendKeys(user.getPassword());
         submit.click();
     }
 
