@@ -6,3 +6,6 @@ Feature: Contact Form submitting
     When Fill form with "entity_1"
       And Submit Contact Form
     Then Result contains "entity_1"
+
+  Scenario: Scenario_failed
+    Given Fail step

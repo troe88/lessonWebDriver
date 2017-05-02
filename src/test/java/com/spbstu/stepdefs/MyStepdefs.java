@@ -4,10 +4,12 @@ import com.spbstu.EpamSite;
 import com.spbstu.helper.ResourceLoaderSTU;
 import com.spbstu.pageobjectsfactory.entities.User;
 import cucumber.api.DataTable;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.Assert;
 
 /**
  * Created by dmitry on 18.04.2017.
@@ -43,5 +45,10 @@ public class MyStepdefs {
     @When("^Fill Contact Form with data below$")
     public void fillContactFormWithDataBelow(DataTable dataTable) throws Throwable {
 
+    }
+
+    @Given("^Fail step$")
+    public void failStep() throws Throwable {
+        Assert.fail();
     }
 }
