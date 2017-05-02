@@ -1,17 +1,13 @@
-package com.stepdefs;
+package com.spbstu.stepdefs;
 
 import com.spbstu.EpamSite;
 import com.spbstu.helper.ResourceLoaderSTU;
 import com.spbstu.pageobjectsfactory.entities.User;
 import cucumber.api.DataTable;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
-import java.util.Map;
 
 /**
  * Created by dmitry on 18.04.2017.
@@ -41,11 +37,11 @@ public class MyStepdefs {
 
     @Then("^Result contains \"([^\"]*)\"$")
     public void resultContains(String arg0) throws Throwable {
-        throw new NotImplementedException();
+
     }
 
     @When("^Fill Contact Form with data below$")
     public void fillContactFormWithDataBelow(DataTable dataTable) throws Throwable {
-        throw new PendingException();
+
     }
 }

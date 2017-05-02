@@ -1,4 +1,4 @@
-package com.stepdefs;
+package com.spbstu.stepdefs;
 
 import com.spbstu.EpamSite;
 import cucumber.api.Scenario;
