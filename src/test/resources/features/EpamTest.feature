@@ -7,5 +7,8 @@ Feature: Contact Form submitting
       And Submit Contact Form
     Then Result contains "entity_1"
 
-  Scenario: Scenario_failed
+  Scenario: Scenario_failed_1
+    Given Fail step
+
+  Scenario: Scenario_failed_2
     Given Fail step
